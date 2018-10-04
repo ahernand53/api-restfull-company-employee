@@ -14,16 +14,7 @@ class EmployeeController extends ApiController
      */
     public function index()
     {
-        $employees = [];
-
-        if (isset($_GET['sort']) || isset($_GET['limit'])) {
-            $employees = [
-                'data' => Employee::sort($_GET)
-            ];
-        } else {
-            $employees = Employee::orderBy('id', 'ASC')->get();
-        }
-
+        $employees = Employee::all();
 
         return $this->showAll($employees);
     }
