@@ -42,11 +42,4 @@ class Employee extends Model
         $this->belongsTo(Company::class);
     }
 
-    public static function sort($filter) {
-        if ($filter['sort'] == 'name_asc'){
-            return Employee::orderBy('first_name', 'ASC')->get();
-        } else if ($filter['sort'] == 'name_desc') {
-            return Employee::orderBy('first_name', 'DESC')->get();
-        }
-    }
 }

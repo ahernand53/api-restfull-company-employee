@@ -43,8 +43,8 @@ trait ApiResponser
     {
         if (request()->has('sort')) {
             $attribute = request()->sort;
-            dd($attribute);
-            $collection = $collection->sortBy($attribute);
+            $collection = $collection->sortBy->{$attribute};
+
         }
         return $collection;
     }

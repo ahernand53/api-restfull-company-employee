@@ -16,12 +16,7 @@ class CompanyController extends ApiController
      */
     public function index()
     {
-        $companies = [];
-        if (isset($_GET['sort'])) {
-            $companies = Company::sort($_GET);
-        } else {
-            $companies = Company::all();
-        }
+        $companies = Company::all();
 
         return $this->showAll($companies);
     }

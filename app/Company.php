@@ -31,12 +31,4 @@ class Company extends Model
         return $this->hasMany(Employee::class);
     }
 
-    public static function sort($filter) {
-        if ($filter['sort'] == 'name_asc') {
-            return Company::orderBy('name_company', 'ASC')->paginate(1000);
-        } else if ($filter['sort'] == 'name_desc') {
-            return Company::orderBy('name_company', 'DESC')->paginate(1000);
-        }
-    }
-
 }
