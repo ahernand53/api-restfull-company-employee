@@ -10,11 +10,23 @@ use Illuminate\Support\Facades\Validator;
 trait ApiResponser
 {
 
+    /**
+     * @param $data
+     * @param $code
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     private function successResponse($data, $code)
     {
         return response()->json($data, $code);
     }
 
+    /**
+     * @param $message
+     * @param $code
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function errorResponse($message, $code)
     {
         return response()->json(
@@ -26,6 +38,12 @@ trait ApiResponser
         );
     }
 
+    /**
+     * @param Collection $collection
+     * @param int        $code
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function showAll(Collection $collection, $code = 200)
     {
         if ($collection->isEmpty()) {
@@ -38,21 +56,44 @@ trait ApiResponser
         return $this->successResponse($collection, $code);
     }
 
+    /**
+     * @param Model $instance
+     * @param int   $code
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function showOne(Model $instance, $code = 200)
     {
         return $this->successResponse(['data' => $instance], $code);
     }
 
+    /**
+     * @param Collection $collection
+     *
+     * @return Collection|mixed
+     */
     protected function sortData(Collection $collection)
     {
+        $result = explode("-", request()->sort);
         if (request()->has('sort')) {
-            $attribute = request()->sort;
-            $collection = $collection->sortBy->{$attribute};
+            $attribute = $result[0];
+            $order = $result[1];
+            if ($order == 'asc') {
+                $collection = $collection->sortBy->{$attribute};
+            } else {
+                $collection = $collection->sortByDesc->{$attribute};
+            }
+
 
         }
         return $collection;
     }
 
+    /**
+     * @param Collection $collection
+     *
+     * @return LengthAwarePaginator
+     */
     protected function paginate(Collection $collection)
     {
         $rules = [
@@ -80,7 +121,14 @@ trait ApiResponser
         return $paginated;
     }
 
-    protected function showMessage($message, $code = 200)
+
+    /**
+     * @param String $message
+     * @param int    $code
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function showMessage(String $message, $code = 200)
     {
         return $this->successResponse(['data' => $message], $code);
     }
