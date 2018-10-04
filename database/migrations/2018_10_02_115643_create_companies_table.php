@@ -22,6 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->string('phone');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

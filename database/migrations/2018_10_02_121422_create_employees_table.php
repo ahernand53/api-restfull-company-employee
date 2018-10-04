@@ -22,7 +22,9 @@ class CreateEmployeesTable extends Migration
             $table->string('city');
             $table->double('salary');
             $table->unsignedInteger('company_id');
+
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('company_id')->references('id')->on('companies');
         });

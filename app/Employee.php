@@ -3,13 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User;
 
 class Employee extends Model
 {
-    protected $table = 'employees';
+    use SoftDeletes;
 
+    protected $table = 'employees';
     protected $guarded = [];
+    protected $dates = ['deleted_at'];
 
     public function setFirstNameAttribute($valor) {
         $this->attributes['first_name'] = strtolower($valor);
@@ -30,8 +33,6 @@ class Employee extends Model
     public function setEmailAttribute($valor) {
         $this->attributes['email'] = strtolower($valor);
     }
-
-
 
     public function getCompany(User $user) {
         return $user->hasOne(Company::class);
