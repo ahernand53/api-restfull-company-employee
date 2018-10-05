@@ -11,6 +11,11 @@ class Company extends Model
 
     protected $table = 'companies';
     protected $guarded = [];
+    protected $hidden = [
+        'updated_at',
+        'created_at',
+        'deleted_at'
+    ];
     protected $dates = ['deleted_at'];
 
 

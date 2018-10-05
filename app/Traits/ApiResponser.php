@@ -51,9 +51,9 @@ trait ApiResponser
         }
 
         $collection = $this->sortData($collection);
-        $collection = $this->paginate($collection);
+//        $collection = $this->paginate($collection);
 
-        return $this->successResponse($collection, $code);
+        return $this->successResponse(['data' => $collection], $code);
     }
 
     /**

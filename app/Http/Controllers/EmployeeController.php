@@ -67,7 +67,7 @@ class EmployeeController extends ApiController
      */
     public function show(Employee $employee)
     {
-        $employeeLoad = Employee::findOrFail($employee)->first();
+        $employeeLoad = Employee::findOrFail($employee->id);
 
         return $this->showOne($employeeLoad);
     }
@@ -93,7 +93,7 @@ class EmployeeController extends ApiController
 
         $this->validate($request, $validation['rules'], $validation['message']);
 
-        if ($request->has('first_name') && $request->first_name != $employee->first_name) {
+        if ($request->has('first_name') ) {
             $employee->first_name = $request->first_name;
         }
 
