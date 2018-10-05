@@ -54,7 +54,6 @@ class CompanyController extends ApiController
         );
 
         $fields = $request->all();
-        // TODO: COMPLETAR EL RETORNO DEL MSG DE VALIDACION
         $company = Company::create($fields);
 
         return $this->showOne($company, 201);

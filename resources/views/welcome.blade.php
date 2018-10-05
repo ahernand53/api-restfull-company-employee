@@ -9,88 +9,40 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+        <div class="container">
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+            <div class="row">
+                <div class="mx-auto" style="margin-top: 10%">
+                    <div class="col-12">
+                        <div class="jumbotron">
+                            <h1 class="display-4">Empresas</h1>
+                            <p class="lead">Resusmen de todas las actividades que se pueden realizar con las empresas</p>
+                            <hr class="my-4">
+                            <p>Las rutas las pueden encontrar en el <a href="https://github.com/ahernand53/api-restfull-company-employee">repositorio</a></p>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">GO</a>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="jumbotron">
+                            <h1 class="display-4">Empleados</h1>
+                            <p class="lead">Se denota que los empleados dependen de las empresas creadas, todas sus actividades que se pueden realizar con los empleados</p>
+                            <hr class="my-4">
+                            <p>En el <a href="https://github.com/ahernand53/api-restfull-company-employee">repositorio</a> pueden encontrar las distintas maneras de como filtrar y limitar</p>
+                            <a class="btn btn-primary btn-lg" href="/empleados" role="button">GO</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+
             </div>
+
         </div>
+
     </body>
 </html>

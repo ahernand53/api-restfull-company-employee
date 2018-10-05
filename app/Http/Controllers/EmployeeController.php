@@ -67,7 +67,7 @@ class EmployeeController extends ApiController
      */
     public function show(Employee $employee)
     {
-        $employeeLoad = Employee::findOrFail($employee)->first();
+        $employeeLoad = Employee::findOrFail($employee->id);
 
         return $this->showOne($employeeLoad);
     }
