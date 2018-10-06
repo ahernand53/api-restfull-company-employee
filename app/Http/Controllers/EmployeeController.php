@@ -109,8 +109,8 @@ class EmployeeController extends ApiController
             $employee->email = $request->email;
         }
 
-        if ($request->has('phone')) {
-            $employee->phone = $request->phone;
+        if ($request->has('phone_number')) {
+            $employee->phone_number = $request->phone_number;
         }
 
         if ($request->has('company_id')) {
