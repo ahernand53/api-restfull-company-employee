@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
 //        DB::table('companies')->truncate();
 //        DB::table('employees')->truncate();
 
-        $numberEmployees = 200;
-        $numberCompanies = 5;
+        $numberEmployees = 1000;
+        $numberCompanies = 100;
 
         factory(Company::class, $numberCompanies)->create();
         factory(Employee::class, $numberEmployees)->create();

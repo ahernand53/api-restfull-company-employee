@@ -10,6 +10,6 @@ $factory->define(App\Employee::class, function (Faker $faker) {
         'phone_number' => $faker->phoneNumber,
         'city' => $faker->city,
         'salary' => rand(1000, 5000),
-        'company_id' => $faker->numberBetween(1, 5)
+        'company_id' => $faker->numberBetween(1, 100)
     ];
 });
